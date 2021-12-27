@@ -11,6 +11,8 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
+       <!-- 「header」 -->
+       <div class="header"></div>
     <div class="container">
       <% flash.each do |message_type, msg| %>
         <div class="alert alert-<%= message_type %>"><%= msg %></div>

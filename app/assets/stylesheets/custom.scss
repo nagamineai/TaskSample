@@ -51,20 +51,43 @@ p {
 }
 
 /* ヘッダー */
+.header{
+  background-color:#teal;
+}
+.navbar-inverse{
+  background-color:teal;
+  font-style:italic;
+}
+#list{
+  color:#ffffff;
+  font-weight:bold;
+}
+#list:hover{
+  color:#808080;
+}
+a.dropdown-toggle{
+  background-color:teal !important;
+}
+.jumbotron {
+  background-color: #fff !important;
+}
+.jumbotron h1{
+  font-style:italic;
+}
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
+  color: #ffffff;
+  text-transform: capitalize;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
 }
 
 #logo:hover {
-  color: #fff;
+  color: #808080;
   text-decoration: none;
 }
 
