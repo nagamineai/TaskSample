@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_user
   before_action :set_task, only: %i(show edit update destroy)
   
   def index
@@ -38,6 +39,13 @@ class TasksController < ApplicationController
       render :new
     end
   end
+  
+  def destroy
+    @task.destroy
+    flash[:success] = "タスクを削除しました。"
+    redirect_to user_tasks_url @user
+  end
+  
   private
 
   def task_params
