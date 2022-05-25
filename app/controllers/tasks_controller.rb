@@ -3,13 +3,12 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i(show edit update destroy)
   
   def index
-    @user = User.find(params[:user_id])
     @tasks = @user.tasks
   end
   
   def show
-    @user = User.find(params[:user_id])
   end
+  
   def edit
     @user = User.find(params[:user_id])
   end
