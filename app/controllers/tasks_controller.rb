@@ -17,6 +17,7 @@ class TasksController < ApplicationController
       flash[:success] = "タスクを更新しました。"
       redirect_to user_task_url(@user, @task)
     else
+      flash.now[:alert] = '更新エラーです。'
       render :edit
     end
   end
