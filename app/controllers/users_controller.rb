@@ -12,10 +12,11 @@ class UsersController < ApplicationController
   def show
   end
   
-  def edit
-  end
-  
   def new
+    if logged_in? && !current_user.admin?
+      flash[:info] = 'ログインしてます。'
+      redirect_to current_user
+    end
     @user = User.new
   end
   
@@ -27,6 +28,19 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
+    end
+  end
+  
+  
+  def edit
+  end
+  
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "ユーザー情報を更新しました。"
+      redirect_to @user
+    else
+      render :edit      
     end
   end
   
@@ -52,9 +66,5 @@ class UsersController < ApplicationController
         redirect_to login_url
       end
     end
-
-    # アクセスしたユーザーが現在ログインしているユーザーか確認します。
-    def correct_user
-      redirect_to(root_url) unless current_user?(@user)
-    end
+    
 end
